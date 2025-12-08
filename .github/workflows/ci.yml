@@ -1,16 +1,18 @@
-name: CI - HTML Validation
+name: CI
+
 on:
-push:
-branches: [ main ]
-pull_request:
-branches: [ main ]
+  push:
+    branches:
+      - main
+
 jobs:
-validate-html:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout code
-uses: actions/checkout@v3
-- name: Validate HTML5
-uses: Cyb3r-Jak3/html5validator-action@v7.2.0
-with:
-root: ./ # Répertoire racine contenant index.html
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html5validator-action@v1.0.0
+        with:
+          file: index.html
